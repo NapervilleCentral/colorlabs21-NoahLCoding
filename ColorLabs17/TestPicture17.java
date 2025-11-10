@@ -18,8 +18,45 @@ public class TestPicture17
      */
   public static void main(String[] args)
   {
+      Picture moto = new Picture("images/redMotorcycle.jpg");
+      Picture moto2 = new Picture("images/redMotorcycle.jpg");
+      Picture moto3 = new Picture("images/redMotorcycle.jpg");
+      Picture moto4 = new Picture("images/redMotorcycle.jpg");
+      Picture moto5 = new Picture("images/redMotorcycle.jpg");
+      Picture moto6 = new Picture("images/redMotorcycle.jpg");
+      int red, green, blue, grayScale;
+      Color newColor;
+      Pixel[] mPixels;
+      mPixels = moto.getPixels();
+    for (Pixel spot: mPixels){
+        //System.out.println(spot1);
+        red = spot.getRed();
+        red = (int) (red * .25);
+        spot.setRed(red);
+    }
+    moto.explore();
+      mPixels = moto2.getPixels();
+      for (Pixel spot: mPixels){
+          red = spot.getRed();  
+          green = spot.getGreen();
+          blue = spot.getBlue();
+          newColor = new Color(255-red, 255-green, 255-blue);
+          spot.setColor(newColor);
+      }
+      moto2.explore();
+      mPixels = moto3.getPixels();
+      for (Pixel spot: mPixels){
+          red = spot.getRed();  
+          green = spot.getGreen();
+          blue = spot.getBlue();
+          grayScale = (int) (red+blue+green)/3;
+          newColor = new Color(grayScale, grayScale, grayScale);
+          spot.setColor(newColor);
+        }
+      
+      //Notes
       //opens picture using a dialog box
-      /**/
+      /*
      //String fileName = FileChooser.pickAFile();
      //Picture pictObj = new Picture(fileName);
      //pictObj.explore();
@@ -44,12 +81,15 @@ public class TestPicture17
      Pixel[] pixels;
      //gets pixels from picture and assigns to pixels array
      pixels = ferris1.getPixels();
+     
+     Pixel[] Mpixels;
+     Mpixels = moto.getPixels();
     
      //how many pixels or how large array
     System.out.println("This is a large array"+pixels.length  );
 
 
-    /**/
+    /*
         //access each index
     System.out.println(pixels[17]);
     //access each pixel
@@ -73,19 +113,42 @@ public class TestPicture17
     System.out.println(spot);
     
     
-    for (int i = 0; i<10000; i++){
-        Pixel yuck = ferris1.getPixel((int) (Math.random()*200), (int) (Math.random()*200));
+    for (int i = 0; i<1000000; i++){
+        Pixel yuck = ferris1.getPixel((int) (Math.random()*1000), (int) (Math.random()*668));
         yuck.setColor(Color.green);
     }
     ferris1.explore();
+    int red;
+    int blue;
+    int green;
+    for (Pixel spot1: Mpixels){
+        //System.out.println(spot1);
+        red = spot1.getRed();
+        red = (int) (red * .25);
+        spot1.setRed(red);
+    }
+    moto.explore();
+    for (Pixel spot1: Mpixels){
+        blue = spot1.getBlue();
+        blue = (int) (blue * Math.random());
+        spot1.setBlue(blue);
     
-/*
+    
+    }
+    moto.explore();
+    for (Pixel spot1: Mpixels){
+        green = spot1.getGreen();
+        green = (int) (green * Math.random());
+        spot1.setGreen(green);
+    }
+    moto.explore();
+    /*
     pixels[17].setColor(Color.blue);
     spot.setColor(new Color(252,252,252));
     pixels[500034].setColor(Color.blue);
 
     ferris1.explore();
-/*
+    /*
    // loop to access indexes of array or collection
 
     //for each loop spot  is a ?
@@ -94,14 +157,14 @@ public class TestPicture17
 
 
    
- /**/
+     /**/
 
- /**
-  * Method to clear red from picture
-  * @param none
-  * @return none
-  */
- /*
+     /**
+      * Method to clear red from picture
+      * @param none
+      * @return none
+      */
+     /*
     for (Pixel pixelObj : pixels)
         {
             //set the red value of the current pixel to the new value
@@ -110,16 +173,16 @@ public class TestPicture17
         }
     ferris1.explore();
     
-/**/
- /**
-  * Method to reduce red from picture by a factor of n
-  * @param none
-  * @return none
-  */
+    /**/
+     /**
+      * Method to reduce red from picture by a factor of n
+      * @param none
+      * @return none
+      */
 
-/*
-int value;
-final double  FACTOR = .5;
+    /*
+    int value;
+    final double  FACTOR = .5;
     for (Pixel pixelObj : pixels)
     {
 
@@ -140,7 +203,7 @@ final double  FACTOR = .5;
 
   /**/ 
     //write/save a picture as a file
-    ferris1.write("images/ferris11.jpg");
+    //ferris1.write("images/ferris11.jpg");
 
     /**/
   }//main
