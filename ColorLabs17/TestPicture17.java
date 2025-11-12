@@ -23,7 +23,7 @@ public class TestPicture17
       Picture moto3 = new Picture("images/redMotorcycle.jpg");
       Picture moto4 = new Picture("images/redMotorcycle.jpg");
       Picture moto5 = new Picture("images/redMotorcycle.jpg");
-      Picture moto6 = new Picture("images/redMotorcycle.jpg");
+      Picture mark6 = new Picture("images/blue-mark.jpg");
       int red, green, blue, grayScale;
       Color newColor;
       Pixel[] mPixels;
@@ -87,18 +87,19 @@ public class TestPicture17
           spot.setBlue(blue);
         }
       moto5.explore();
-      mPixels = moto6.getPixels();
+      mPixels = mark6.getPixels();
+      mark6.explore();
       for (Pixel spot: mPixels){
           red = spot.getRed();  
           green = spot.getGreen();
           blue = spot.getBlue();
-          if (red>80 && red<160 &&blue <160 && blue>80 && green>80 && green <160){
-              spot.setRed(red-150);
-              spot.setGreen(green+90);
-              spot.setBlue(blue+40);
+          if (red>10 && red<25 &&blue <255 && blue>10 && green>20 && green <50){
+              spot.setGreen(255);
+              spot.setBlue(0);
+              spot.setRed(0);
             }
         }
-      moto6.explore();
+      mark6.explore();
       //Notes
       //opens picture using a dialog box
       /*
