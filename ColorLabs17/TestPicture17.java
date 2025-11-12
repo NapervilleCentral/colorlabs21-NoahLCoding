@@ -28,6 +28,7 @@ public class TestPicture17
       Color newColor;
       Pixel[] mPixels;
       mPixels = moto.getPixels();
+      moto.explore();
     for (Pixel spot: mPixels){
         //System.out.println(spot1);
         red = spot.getRed();
@@ -53,7 +54,51 @@ public class TestPicture17
           newColor = new Color(grayScale, grayScale, grayScale);
           spot.setColor(newColor);
         }
-      
+      moto3.explore();
+      mPixels = moto4.getPixels();
+      for (Pixel spot: mPixels){
+          red = (int) (spot.getRed()+100);  
+          green = (int) (spot.getGreen()+100);
+          blue = (int) (spot.getBlue()+100);
+          if (red>255)
+              red = 255;
+          else if (green>225)
+              green = 255;
+          else if (blue>225)
+              blue = 255;
+          spot.setRed(red);
+          spot.setGreen(green);
+          spot.setBlue(blue);
+        }
+      moto4.explore();
+      mPixels = moto5.getPixels();
+      for (Pixel spot: mPixels){
+          red = (int) (spot.getRed()+60);  
+          green = (int) (spot.getGreen()+10);
+          blue = (int) (spot.getBlue()+30);
+          if (red>255)
+              red = 255;
+          else if (green>225)
+              green = 255;
+          else if (blue>225)
+              blue = 255;
+          spot.setRed(red);
+          spot.setGreen(green);
+          spot.setBlue(blue);
+        }
+      moto5.explore();
+      mPixels = moto6.getPixels();
+      for (Pixel spot: mPixels){
+          red = spot.getRed();  
+          green = spot.getGreen();
+          blue = spot.getBlue();
+          if (red>80 && red<160 &&blue <160 && blue>80 && green>80 && green <160){
+              spot.setRed(red-150);
+              spot.setGreen(green+90);
+              spot.setBlue(blue+40);
+            }
+        }
+      moto6.explore();
       //Notes
       //opens picture using a dialog box
       /*
