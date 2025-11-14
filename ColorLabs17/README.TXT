@@ -4,9 +4,24 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: Shepard Fairy Lab
+PURPOSE OF PROJECT: Creates an image of a picture of me and grayscales the image. Then  uses four/five different colors to Shepard Fairy the image.
+VERSION or DATE: 11/13
+AUTHORS: Noah Latakas
+
+
+
+Isaiah:
+fix the color palette. ( fixed)
+
+Titus:
+Change the colors around to have the red be the background. (fixed)
+
+Sister:
+She thought to change the amount of colors used to have a bigger resolution.(It made it look a little worse and thought what I have as the sf2.jpg is perfect.
+
+
+P.S. 
+I think my sf2.jpg looks the best.
+
+

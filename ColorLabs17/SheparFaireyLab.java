@@ -128,27 +128,27 @@ public class SheparFaireyLab
              if (gray<group1){
                 // 143, 45, 86
                 // 0, 78, 100
-                newColor = new Color(0, 78, 100);
+                newColor = new Color(143, 45, 86);
                 }
              else if(gray<group2){
                  // 216, 17, 89
                  //0, 165, 207
-                newColor = new Color(0, 165, 207);
+                newColor = new Color( 216, 17, 89);
                 }
              else if(gray<group3){
                  // 255, 188, 66
                  // 159, 255, 203
-                newColor = new Color(159, 255, 203);             
+                newColor = new Color(255, 188, 66);             
                 }
              else if (gray<group4){
                  // 33, 131, 128
                  // 37, 161, 142
-                newColor = new Color(37, 161, 142);
+                newColor = new Color(33, 131, 128);
                 }
              else{
                  // 115, 210, 222
                  // 122, 229, 130
-                 newColor = new Color(122, 229, 130);
+                 newColor = new Color(115, 210, 222);
                 }
              pixel.setColor(newColor);
             }
