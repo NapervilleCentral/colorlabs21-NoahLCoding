@@ -18,10 +18,10 @@ Titus:
 Change the colors around to have the red be the background. (fixed)
 
 Sister:
-She thought to change the amount of colors used to have a bigger resolution.(It made it look a little worse and thought what I have as the sf2.jpg is perfect.
+She thought to change the amount of colors used to have a bigger resolution.(It made it look a little worse and thought what I have as the sf1.jpg is perfect.
 
 
 P.S. 
-I think my sf2.jpg looks the best.
+I think my sf1.jpg looks the best.
 
 

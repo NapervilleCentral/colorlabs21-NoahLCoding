@@ -46,7 +46,7 @@ public class SheparFaireyLab
             }
          volleyball.explore();
          System.out.println("Min: " + min + " Max: " + max);
-         /*
+         /**/
          int group1 = (int) (255/5);
          int group2 = (int) ((2*255)/5);
          int group3 = (int) ((3*255)/5);
@@ -57,10 +57,10 @@ public class SheparFaireyLab
              if (gray<group1){
                 red = 20;
                 green = 20;
-                blue = 139;
+                blue = 159;
                 }
              else if(gray<group2){
-                red = 180;
+                red = 215;
                 green = 0;
                 blue = 0;
                 }
@@ -117,7 +117,7 @@ public class SheparFaireyLab
             }
             volleyball.explore();
             volleyball.write("images/sf2.jpg");
-          /**/
+          /*
          int group1 = (int) (255/5);
          int group2 = (int) ((2*255)/5);
          int group3 = (int) ((3*255)/5);
@@ -154,7 +154,7 @@ public class SheparFaireyLab
             }
             volleyball.explore();
             //volleyball.write("images/sf4.jpg");
-
+            */
          
     }//main       
 }//class
