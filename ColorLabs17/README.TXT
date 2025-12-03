@@ -22,6 +22,7 @@ She thought to change the amount of colors used to have a bigger resolution.(It 
 
 
 P.S. 
-I think my sf1.jpg looks the best.
+I still think my sf1.jpg looks the best.
+I couldn't figure a good pallet for my final and it's taking a while.
 
 

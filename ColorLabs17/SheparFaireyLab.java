@@ -46,7 +46,7 @@ public class SheparFaireyLab
             }
          volleyball.explore();
          System.out.println("Min: " + min + " Max: " + max);
-         /**/
+         /*
          int group1 = (int) (255/5);
          int group2 = (int) ((2*255)/5);
          int group3 = (int) ((3*255)/5);
@@ -117,44 +117,44 @@ public class SheparFaireyLab
             }
             volleyball.explore();
             volleyball.write("images/sf2.jpg");
-          /*
-         int group1 = (int) (255/5);
-         int group2 = (int) ((2*255)/5);
-         int group3 = (int) ((3*255)/5);
-         int group4 = (int) ((4*255)/5);
+          /**/
+         int group1 = (int) (255/7);
+         int group2 = (int) ((2*255)/7);
+         int group3 = (int) ((3*255)/7);
+         int group4 = (int) ((4*255)/7);
+         int group5 = (int) ((5*255)/7);
+         int group6 = (int) ((6*255)/7);
          for (Pixel pixel: vPixels){
              int gray = pixel.getRed();
              Color newColor;
-             if (gray<group1){
-                // 143, 45, 86
-                // 0, 78, 100
-                newColor = new Color(143, 45, 86);
+            if (gray < group1) {
+                newColor = new Color(198, 13, 41);    // deep red
                 }
-             else if(gray<group2){
-                 // 216, 17, 89
-                 //0, 165, 207
-                newColor = new Color( 216, 17, 89);
-                }
-             else if(gray<group3){
-                 // 255, 188, 66
-                 // 159, 255, 203
-                newColor = new Color(255, 188, 66);             
-                }
-             else if (gray<group4){
-                 // 33, 131, 128
-                 // 37, 161, 142
-                newColor = new Color(33, 131, 128);
-                }
-             else{
-                 // 115, 210, 222
-                 // 122, 229, 130
-                 newColor = new Color(115, 210, 222);
-                }
+            else if (gray < group2) {
+                newColor = new Color(0, 48, 73);  // beige
+            }       
+            else if (gray < group3) {
+                newColor = new Color(30, 115, 125);      // dark navy
+            }
+            else if (gray < group4) {
+                newColor = new Color(214, 119, 61);   // teal blue
+            }
+            else if(gray<group5){
+                newColor = new Color(239,215,179);
+            }
+            else if (gray < group6) {
+                newColor = new Color(20, 20, 20);     // near black
+            }
+            else {
+                newColor = new Color(255, 245, 230);  // light cream highlight
+            }
+
+
              pixel.setColor(newColor);
             }
             volleyball.explore();
-            //volleyball.write("images/sf4.jpg");
-            */
+            volleyball.write("images/sfFinal.jpg");
+            /**/
          
     }//main       
 }//class
