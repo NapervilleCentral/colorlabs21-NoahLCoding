@@ -18,6 +18,12 @@ public class TestPicture17
      */
   public static void main(String[] args)
   {
+      
+      Picture apic = new Picture("images/download.jpg");
+      Picture acanvas = new Picture("images\\Canvas4.jpg");
+      apic.explore();
+      
+      /*
       Picture moto = new Picture("images/redMotorcycle.jpg");
       Picture moto2 = new Picture("images/redMotorcycle.jpg");
       Picture moto3 = new Picture("images/redMotorcycle.jpg");
@@ -253,4 +259,12 @@ public class TestPicture17
 
     /**/
   }//main
+  
+  /**
+   * Method to mirror an a vertical line in the middle of the picture based on the width
+   */
+  
+  
+  
+  
 }//class
