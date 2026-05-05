@@ -7,13 +7,14 @@
  */
 public class PosterFinal{
     public static void main(String[] args){
-        Picture apic = new Picture("images/download.jpg");
-        Picture acanvas = new Picture("images\\Canvas4.jpg");
+        Picture apic = new Picture("images/VolleyballMeme.jpg");
+        Picture acanvas = new Picture("images\\Canvas.jpg");
+        copytoCanvas(apic, acanvas, 0, 0);
         apic.explore();
         mirrorVertical(apic);
         apic.explore();
-        copytoCanvas(apic, acanvas);
-        apic.explore();
+        copytoCanvas(apic, acanvas, 0, 0);
+        acanvas.explore();
     }
     
     /**
@@ -40,12 +41,15 @@ public class PosterFinal{
      * copy one pic to another pic
      * add two ints to params to place you want pic on the target
      */
-    public static void copytoCanvas(Picture source, Picture target){
+    public static void copytoCanvas(Picture source, Picture target, int x, int y){
         Pixel sourcePix = null;
         Pixel targetPix = null;
         
-        //loop thru the columns (targetX is starting point on Canvas)
+        //loop thru the columns (targetX is starting point on Canvas)sourceX+=2 - smaller
+        //                                                          sourceX+=.5 - larger, copy every pixel twice
         for (int sourceX=0, targetX=0; sourceX<source.getWidth(); sourceX++,targetX++){
+                                                                        //SourceY+=2 - smaller
+                                                                        //SourceY+=.5 - larger copy every pixel twice
             for (int sourceY=0, targetY=0; sourceX<source.getHeight(); sourceY++,targetY++){
                 sourcePix = source.getPixel(sourceX, sourceY);
                 targetPix = target.getPixel(targetX, targetY);
