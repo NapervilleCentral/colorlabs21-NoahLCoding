@@ -8,12 +8,18 @@
 public class PosterFinal{
     public static void main(String[] args){
         Picture apic = new Picture("images/VolleyballMeme.jpg");
-        Picture acanvas = new Picture("images\\Canvas.jpg");
+        Picture apic2 = new Picture("images/VolleyballMeme.jpg");
+        Picture apic3 = new Picture("images/VolleyballMeme.jpg");
+        Picture api4 = new Picture("images/VolleyballMeme.jpg");
+        Picture apic5 = new Picture("images/VolleyballMeme.jpg");
+        Picture apic6 = new Picture("images/VolleyballMeme.jpg");
+        Picture acanvas = new Picture("images/Canvas.jpg");
         copytoCanvas(apic, acanvas, 0, 0);
-        apic.explore();
+        mirrorHorizontal(apic);
+        //apic.explore();
         mirrorVertical(apic);
         apic.explore();
-        copytoCanvas(apic, acanvas, 0, 0);
+        copytoCanvas(apic, acanvas, 225, 0);
         acanvas.explore();
     }
     
@@ -37,20 +43,37 @@ public class PosterFinal{
             }
         }
     }
+    public static void mirrorHorizontal(Picture source){
+        int height = source.getHeight();
+        int mirrorPoint = height/2;
+        Pixel topPixel = null;
+        Pixel bottomPixel = null;
+        
+        for (int x=0; x <source.getWidth(); x++){
+            // loop from 0 to the middle(mirror Point)
+            for (int y=0; y<mirrorPoint;y++){
+                topPixel = source.getPixel(x,y);
+                bottomPixel = source.getPixel(x, height-1-y);
+                bottomPixel.setColor(topPixel.getColor());
+                
+            }
+        }
+    }
     /**
      * copy one pic to another pic
      * add two ints to params to place you want pic on the target
      */
+    
     public static void copytoCanvas(Picture source, Picture target, int x, int y){
         Pixel sourcePix = null;
         Pixel targetPix = null;
         
         //loop thru the columns (targetX is starting point on Canvas)sourceX+=2 - smaller
         //                                                          sourceX+=.5 - larger, copy every pixel twice
-        for (int sourceX=0, targetX=0; sourceX<source.getWidth(); sourceX++,targetX++){
+        for (int sourceX=0, targetX=x; sourceX<source.getWidth(); sourceX++,targetX++){
                                                                         //SourceY+=2 - smaller
                                                                         //SourceY+=.5 - larger copy every pixel twice
-            for (int sourceY=0, targetY=0; sourceX<source.getHeight(); sourceY++,targetY++){
+            for (int sourceY=0, targetY=y; sourceY<source.getHeight(); sourceY++,targetY++){
                 sourcePix = source.getPixel(sourceX, sourceY);
                 targetPix = target.getPixel(targetX, targetY);
                 targetPix.setColor(sourcePix.getColor());
