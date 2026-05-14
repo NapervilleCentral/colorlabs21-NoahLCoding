@@ -8,25 +8,32 @@ import java.awt.Color;
  */
 public class PosterFinal{
     public static void main(String[] args){
+        Picture stare = new Picture("images/stare.jpg");
         Picture apic = new Picture("images/VolleyballMeme.jpg");
         Picture apic2 = new Picture("images/VolleyballMeme.jpg");
         Picture apic3 = new Picture("images/VolleyballMeme.jpg");
         Picture apic4 = new Picture("images/VolleyballMemeBigger.jpg");
         Picture apic5 = new Picture("images/VolleyballMeme.jpg");
         Picture apic6 = new Picture("images/VolleyballMeme.jpg");
+        Picture apic7 = new Picture("images/VolleyballMeme.jpg");
         Picture acanvas = new Picture("images/Canvas.jpg");
         mirrorHorizontal(apic2);
         mirrorVertical(apic2);
         negation(apic3);
         Repeat(apic4);
         grayScale(apic5);
+        sepia(apic6);
+        blend(apic7, stare);
         //apic4.explore();
         copytoCanvas(apic, acanvas, 0, 0);
         copytoCanvas(apic2, acanvas, 225, 0);
         copytoCanvas(apic3, acanvas, 450, 0);
-        copytoCanvas(apic4, acanvas, 225, 225);
-        copytoCanvas(apic5, acanvas, 675, 0);
+        copytoCanvas(apic4, acanvas, 675, 0);
+        copytoCanvas(apic5, acanvas, 0, 225);
+        copytoCanvas(apic6, acanvas, 450, 225);
+        copytoCanvas(apic7, acanvas, 225, 225);
         acanvas.explore();
+        acanvas.write("images/acanvas.jpg");
     }
     
     /**
@@ -77,6 +84,23 @@ public class PosterFinal{
             }
         }
     }
+    public static void blend(Picture source, Picture other){
+        Pixel sourcePixel = null;
+        Pixel otherPixel = null;
+        for(int r = 0; r<source.getWidth(); r++){
+            for (int c = 0; c<source.getHeight(); c++){
+                sourcePixel = source.getPixel(r,c);
+                otherPixel = other.getPixel(r,c);
+                int sourceRed = sourcePixel.getRed();
+                int sourceGreen = sourcePixel.getGreen();
+                int sourceBlue = sourcePixel.getBlue();
+                int otherRed = otherPixel.getRed();
+                int otherGreen = otherPixel.getGreen();
+                int otherBlue = otherPixel.getBlue();
+                sourcePixel.setColor(new Color((sourceRed+otherRed)/2, (sourceGreen+otherGreen)/2, (sourceBlue+otherBlue)/2));
+            }
+        }
+    }
     public static void grayScale(Picture source){
         Pixel pixel = null;
         for(int r = 0; r<source.getWidth(); r++){
@@ -90,7 +114,37 @@ public class PosterFinal{
             }
         }
     }
-    
+    public static void sepia(Picture source)
+    {
+        for (int x = 0; x < source.getWidth(); x++)
+        {
+            for (int y = 0; y < source.getHeight(); y++)
+            {
+                Pixel p = source.getPixel(x, y);
+                int g =(int)((p.getRed() + p.getGreen() + p.getBlue()) / 3.0);
+                int r, gr, b;
+                if (g < 60)
+                {
+                    r  =(int)(g * 0.9);
+                    gr =(int)(g * 0.8);
+                    b  =(int)(g * 0.8);
+                }
+                else if (g < 190)
+                {
+                    r  =Math.min(255, (int)(g * 1.10));
+                    gr =(int)(g * 0.90);
+                    b  =(int)(g * 0.70);
+                }
+                else
+                {
+                    r  =Math.min(255,(int)(g * 1.08));
+                    gr =Math.min(255,(int)(g * 1.00));
+                    b  =(int)(g * 0.85);
+                }
+                p.setColor(new Color(r, gr, b));
+            }
+        }
+    }
     public static void Repeat(Picture source){
         int height = source.getHeight();
         int width = source.getWidth();
