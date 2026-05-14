@@ -20,10 +20,11 @@ public class PosterFinal{
         negation(apic3);
         Repeat(apic4);
         grayScale(apic5);
-        apic4.explore();
+        //apic4.explore();
         copytoCanvas(apic, acanvas, 0, 0);
         copytoCanvas(apic2, acanvas, 225, 0);
         copytoCanvas(apic3, acanvas, 450, 0);
+        copytoCanvas(apic4, acanvas, 225, 225);
         copytoCanvas(apic5, acanvas, 675, 0);
         acanvas.explore();
     }
@@ -108,19 +109,24 @@ public class PosterFinal{
         }
         Pixel sourcePix = null;
         Pixel targetPix = null;
-        
+        Pixel smallPix = null;
+        Picture smaller= new Picture(width/2, height/2);
         //loop thru the columns (targetX is starting point on Canvas)sourceX+=2 - smaller
         //                                                          sourceX+=.5 - larger, copy every pixel twice
-        for (int sourceX=0, targetX=x; sourceX<source.getWidth(); sourceX+=2,targetX++){
+        for (int sourceX=0, targetX=0; sourceX<width-1; sourceX+=2,targetX++){
                                                                         //SourceY+=2 - smaller
                                                                         //SourceY+=.5 - larger copy every pixel twice
-            for (int sourceY=0, targetY=y; sourceY<source.getHeight(); sourceY+=2,targetY++){
+            for (int sourceY=0, targetY=0; sourceY<height-1; sourceY+=2,targetY++){
                 sourcePix = source.getPixel(sourceX, sourceY);
-                targetPix = target.getPixel(targetX, targetY);
+                targetPix = target.getPixel(targetX+x, targetY+y);
+    
                 targetPix.setColor(sourcePix.getColor());
+                
+                smallPix = smaller.getPixel(targetX, targetY);
+                smallPix.setColor(sourcePix.getColor());
             }
         }
-        
+        copytoCanvasRecursion(smaller, target, x, y);
     }
     
     /**
@@ -133,7 +139,7 @@ public class PosterFinal{
         Pixel targetPix = null;
         
         //loop thru the columns (targetX is starting point on Canvas)sourceX+=2 - smaller
-        //                                                          sourceX+=.5 - larger, copy every pixel twice
+        //sourceX+=.5 - larger, copy every pixel twice
         for (int sourceX=0, targetX=x; sourceX<source.getWidth(); sourceX++,targetX++){
                                                                         //SourceY+=2 - smaller
                                                                         //SourceY+=.5 - larger copy every pixel twice
